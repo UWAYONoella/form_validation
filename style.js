@@ -47,7 +47,6 @@ for(let id in info){
         done.textContent="Done";
         done.style.color="green";
 
-
         let deleto=document.createElement("button");
         deleto.setAttribute("type","submit");
         deleto.classList.add("deleto");
@@ -61,12 +60,14 @@ for(let id in info){
 
             
         })
+    
         deleto.addEventListener("click",function(e){
            if(confirm("Do you want to delete this course ???")){
             displaz.removeChild(deleto);
            }
             
 
+        
         })
 
     
@@ -74,6 +75,17 @@ for(let id in info){
 
     })
 }
-
-
 })
+
+var x=5;
+var y=10;
+document.getElementById("demo").innerHTML=x+y;
+
+
+
+
+
+
+
+
+
