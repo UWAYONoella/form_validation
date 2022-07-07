@@ -7,63 +7,62 @@ form.setAttribute("id","form");
 body.appendChild(form);
 
 let input=document.createElement("input");
-input.setAttribute("type","text");
-input.setAttribute("id","input");
 form.appendChild(input);
+input.setAttribute("type","text");
 input.setAttribute("placeholder","Add  What to do");
+input.id="input";
+input.classList.add("todo");
+input.addEventListener("keyup",(e)=>{
+    console.log(e);
+    if(e.target!=undefined){
+      e.target.value=e.target.value.toUpperCase();
+    }
+  })
 
 let button=document.createElement("button");
-button.setAttribute("id","button");
+form.appendChild(button);
 button.setAttribute("type","text");
 button.textContent="+"
-form.appendChild(button);
+button.classList.add("btn");
+let br1=document.createElement("br");
+form.appendChild(br1);
+let br2=document.createElement("br");
+form.appendChild(br2);
 
-function Myinfo(input){
-this.input=input;
-}
 button.addEventListener("click",function(e){
 e.preventDefault();
-let info=new Myinfo(input.value);
-for(let id in info){
-    input.innerHTML =input.value;
-    input.value="";
-
-    button.addEventListener("click",function(e){
-        e.preventDefault();
-        let displaz=document.createElement("displaz");
-        displaz.classList.add("displaz");
-        displaz.textContent=input.value;
-        form.appendChild(displaz);
-        input.value="";
-        displaz.style.backgroundColor="grey";
-        let br1=document.createElement("br");
-        form.appendChild(br1);
+let info=document.createElement("info");
+info.classList.add("down");
+form.appendChild(info);
+e.target.style.backgroundColor="yellow";
+   info.textContent=text.value;
+   text.value="";
+   info.style.backgroundColor="rgb(135,144,144";
+   let br3=document.createElement("br");
+   form.appendChild(br3);
         let done=document.createElement("button");
-        
-        
-        done.setAttribute("type","submit");
+         done.setAttribute("type","submit");
         done.classList.add("done");
-        displaz.appendChild(done);
+        info.appendChild(done);
         done.textContent="Done";
         done.style.color="green";
 
         let deleto=document.createElement("button");
         deleto.setAttribute("type","submit");
         deleto.classList.add("deleto");
-        displaz.appendChild(done);
+        info.appendChild(done);
         deleto.textContent="deleto";
         deleto.style.color="red";
         done.addEventListener("click",function(e){
         
-            displaz.style.textDecoration="line-through";
-
-
-            
+            info.style.textDecoration="line-through";
+            e.target.style.backgroundColor="blue";
         })
     
         deleto.addEventListener("click",function(e){
-           if(confirm("Do you want to delete this course ???")){
-            displaz.removeChild(deleto);
+            e.target.style.backgroundColor="blue";
+           if(confirm("Do you want to delete this"+paragraph.innerText+"???")){
+            form.removeChild(info);
            }
             
 
@@ -74,13 +73,6 @@ for(let id in info){
 
 
     })
-}
-})
-
-var x=5;
-var y=10;
-document.getElementById("demo").innerHTML=x+y;
-
 
 
 
