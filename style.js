@@ -1,79 +1,95 @@
-let body=document.getElementsByTagName("body")[0];
-console.log(body);
+// let body=document.getElementsByTagName("body")[0];
+// console.log(body);
 
-let form=document.createElement("form");
-form.classList.add("form");
-form.setAttribute("id","form");
-body.appendChild(form);
+// let form=document.createElement("form");
+// form.classList.add("form");
+// form.setAttribute("id","form");
+// body.appendChild(form);
 
-let input=document.createElement("input");
-form.appendChild(input);
-input.setAttribute("type","text");
-input.setAttribute("placeholder","Add  What to do");
-input.id="input";
-input.classList.add("todo");
-input.addEventListener("keyup",(e)=>{
-    console.log(e);
-    if(e.target!=undefined){
-      e.target.value=e.target.value.toUpperCase();
-    }
-  })
+// let input=document.createElement("input");
+// form.appendChild(input);
+// input.setAttribute("type","text");
+// input.setAttribute("placeholder","Add  What to do");
+// input.id="input";
+// input.classList.add("todo");
+// input.addEventListener("keyup",(e)=>{
+//     console.log(e);
+//     if(e.target!=undefined){
+//       e.target.value=e.target.value.toUpperCase();
+//     }
+//   })
 
-let button=document.createElement("button");
-form.appendChild(button);
-button.setAttribute("type","text");
-button.textContent="+"
-button.classList.add("btn");
-let br1=document.createElement("br");
-form.appendChild(br1);
-let br2=document.createElement("br");
-form.appendChild(br2);
+// let button=document.createElement("button");
+// form.appendChild(button);
+// button.setAttribute("type","text");
+// button.textContent="+"
+// button.classList.add("btn");
+// let br1=document.createElement("br");
+// form.appendChild(br1);
+// let display=document.createElement("display");
+// display.classList.add("display");
+// form.appendChild(display);
 
-button.addEventListener("click",function(e){
-e.preventDefault();
-let info=document.createElement("info");
-info.classList.add("down");
-form.appendChild(info);
+// button.addEventListener("click",function(e){
+//   e.target.style.backgroudColor="yellow";
+// })
+
+let container=document.getElementById("container");
+let inputf=document.getElementById("inputf");
+let addbut=document.getElementById("addbut")
+let display=document.getElementById("display");
+
+inputf.addEventListener("keyup",(e)=>{
+  console.log(e);
+  if(e.target!=undefined){
+    e.target.value=e.target.value.toUpperCase();
+  }
+})
+
+addbut.addEventListener("click",function(e){
 e.target.style.backgroundColor="yellow";
-   info.textContent=text.value;
-   text.value="";
-   info.style.backgroundColor="rgb(135,144,144";
-   let br3=document.createElement("br");
-   form.appendChild(br3);
-        let done=document.createElement("button");
-         done.setAttribute("type","submit");
-        done.classList.add("done");
-        info.appendChild(done);
-        done.textContent="Done";
-        done.style.color="green";
+let label=document.createElement("label");
+label.classList.add("label");
+display.appendChild(label);
+label.innerText=inputf.value;
+inputf.value="";
+display.style.overflow="scroll";
+let done=document.createElement("button");
+done.classList.add("done");
 
-        let deleto=document.createElement("button");
-        deleto.setAttribute("type","submit");
-        deleto.classList.add("deleto");
-        info.appendChild(done);
-        deleto.textContent="deleto";
-        deleto.style.color="red";
-        done.addEventListener("click",function(e){
-        
-            info.style.textDecoration="line-through";
-            e.target.style.backgroundColor="blue";
-        })
+done.innerHTML="Done";
+label.appendChild(done);
+
+let delet=document.createElement("button");
+label.appendChild(delet);
+delet.innerHTML="Delete";
+
+let br1=document.createElement("br");
+br1.classList.add("br1");
+display.appendChild(br1);
+done.addEventListener("click",function(e){
+  e.target.style.backgroundColor="red";
+  label.style.textDecoration="line-through";
+  label.style.color="blue";
+  label.style.backgroundColor="white";
+  delet.style.backgroundColor="blue";
+  
+})
+
+delet.addEventListener("click",function(e){
+  delet.innerHTML="Delete";
+  if(confirm("Delete ")){
     
-        deleto.addEventListener("click",function(e){
-            e.target.style.backgroundColor="blue";
-           if(confirm("Do you want to delete this"+paragraph.innerText+"???")){
-            form.removeChild(info);
-           }
-            
+    display.removeChild(label);
+  }else{
 
-        
-        })
-
-    
+  }
+})
 
 
-    })
 
+
+})
 
 
 

@@ -1,0 +1,46 @@
+let br2=document.createElement("br");
+form.appendChild(br2);
+
+button.addEventListener("click",function(e){
+e.preventDefault();
+let info=document.createElement("info");
+info.classList.add("down");
+form.appendChild(info);
+e.target.style.backgroundColor="yellow";
+   info.textContent=text.value;
+   text.value="";
+   info.style.backgroundColor="rgb(135,144,144";
+   let br3=document.createElement("br");
+   form.appendChild(br3);
+        let done=document.createElement("button");
+         done.setAttribute("type","submit");
+        done.classList.add("done");
+        info.appendChild(done);
+        done.textContent="Done";
+        done.style.color="green";
+
+        let deleto=document.createElement("button");
+        deleto.setAttribute("type","submit");
+        deleto.classList.add("deleto");
+        info.appendChild(done);
+        deleto.textContent="deleto";
+        deleto.style.color="red";
+        done.addEventListener("click",function(e){
+        
+            info.style.textDecoration="line-through";
+            e.target.style.backgroundColor="green";
+        })
+    
+        deleto.addEventListener("click",function(e){
+            e.target.style.backgroundColor="green";
+           if(confirm("Do you want to delete this"+paragraph.innerText+"???")){
+            form.removeChild(info);
+           }
+            
+
+        
+        })
+    
+
+
+    })
